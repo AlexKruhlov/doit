@@ -11,3 +11,6 @@ The main aim of this project is to create the command line daily plan manager.
 * Git (version 2.17.1)
 * Linux Ubuntu (version 18.04.3 LTS)
 * IDE IntelliJ IDEA Ultimate Edition (2019.3)
+* MongoDB (version 4.2.1)
+* Mongo Java Driver dependency (version 3.11.2 - inbuilt in Spring Data) 
+
