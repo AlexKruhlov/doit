@@ -1,6 +1,6 @@
 package ua.com.rafael.doit.api.controller;
 
-public interface DoitController<S, T> {
+public interface DoitController {
 
-    S doTask(T taskMessage);
+    void runManager();
 }
