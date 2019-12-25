@@ -21,6 +21,5 @@ public class DoitManager implements DoitController {
                 System.exit(0);
             }
         }
-
     }
 }
