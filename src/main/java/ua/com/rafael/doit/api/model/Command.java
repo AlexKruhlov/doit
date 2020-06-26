@@ -1,6 +1,6 @@
 package ua.com.rafael.doit.api.model;
 
-public interface Command<T> {
+public interface Command<T, R> {
 
-    void execute(T taskMessage);
+    R execute(T taskMessage);
 }
