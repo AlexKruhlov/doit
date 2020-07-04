@@ -1,6 +1,5 @@
 package ua.com.rafael.doit;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import ua.com.rafael.doit.feature.model.CommonValidatorCommand;
@@ -14,9 +13,9 @@ class DoitApplicationTests {
 
     @ParameterizedTest
     @MethodSource
-    void shouldValidateSuccessfully(final String taskMessage) {
-        final String actual = commonValidatorCommand.execute(taskMessage);
-        assertEquals(taskMessage, actual);
+    void shouldValidateSuccessfully(final String command) {
+        final String actual = commonValidatorCommand.execute(command);
+        assertEquals(command, actual);
     }
 
     static Stream<String> shouldValidateSuccessfully() {
@@ -44,8 +43,8 @@ class DoitApplicationTests {
 
     @ParameterizedTest
     @MethodSource
-    void shouldValidateUnsuccessfully(final String taskMessage) {
-        assertThrows(RuntimeException.class, () -> commonValidatorCommand.execute(taskMessage));
+    void shouldValidateUnsuccessfully(final String command) {
+        assertThrows(RuntimeException.class, () -> commonValidatorCommand.execute(command));
     }
 
     static Stream<String> shouldValidateUnsuccessfully() {
@@ -55,7 +54,8 @@ class DoitApplicationTests {
                 "doit ",
                 "plan",
                 "plan doit",
-                "doit plan-abc",
+                "doit plan-abc", "doit seto \"New task\" 2021.02.29",
+
                 "doit plan ---abc",
                 "doit plan -abc--abc",
                 "doit plan --time--abd",
@@ -77,7 +77,21 @@ class DoitApplicationTests {
                 "doit seto \"New task\" 2020.12.12-11:00:00-2020.12.11");
     }
 
-    @Test
-    void test() {
+    @ParameterizedTest
+    @MethodSource
+    void validateDateCorrectness_shouldThrowException(final String command) {
+        assertThrows(RuntimeException.class, () -> commonValidatorCommand.execute(command));
+    }
+
+    static Stream<String> validateDateCorrectness_shouldThrowException() {
+        return Stream.of(
+                "doit seto \"New task\" 2021.02.29",
+                "doit seto \"New task\" 2021.02.30",
+                "doit seto \"New task\" 2021.02.31",
+                "doit seto \"New task\" 2021.04.31",
+                "doit seto \"New task\" 2020.03.12-2020.06.31",
+                "doit seto \"New task\" 2020.02.30-2020.12.26",
+                "doit seto \"New task\" 2020.03.25-2020.03.25",
+                "doit seto \"New task\" 2020.03.25-2020.01.26");
     }
 }
