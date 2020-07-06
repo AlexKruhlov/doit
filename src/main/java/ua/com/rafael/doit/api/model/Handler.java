@@ -1,6 +1,6 @@
 package ua.com.rafael.doit.api.model;
 
-public interface Handler<S, T> {
+public interface Handler<T> {
 
-    S handle(T taskMessage);
+    boolean handle(T taskMessage);
 }

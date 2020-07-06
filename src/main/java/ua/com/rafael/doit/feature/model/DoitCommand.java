@@ -1,20 +1,24 @@
 package ua.com.rafael.doit.feature.model;
 
+import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.Validate;
 import ua.com.rafael.doit.api.model.Command;
 import ua.com.rafael.doit.api.model.Handler;
 
-public class DoitCommand extends DoitHandler implements Command<String[]> {
+@RequiredArgsConstructor
+public abstract class DoitCommand implements Command<String, String>, Handler<String> {
+    private static final String COMMAND_NULL_ERROR = "Command should not be null or empty.";
 
-    public DoitCommand(Handler<CommandExecutingStatus, String[]> nextHandler) {
-        super(nextHandler);
+    private final DoitCommand nextCommand;
+
+    @Override
+    public boolean handle(final String command) {
+        Validate.notBlank(command, COMMAND_NULL_ERROR);
+        return true;
     }
 
     @Override
-    public CommandExecutingStatus handle(String[] taskMessage) {
-        return null;
-    }
-
-    @Override
-    public void execute(String[] taskMessage) {
+    public String execute(final String command) {
+        return nextCommand.execute(command);
     }
 }
