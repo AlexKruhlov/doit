@@ -36,9 +36,10 @@ class DoitApplicationTests {
                 "doit seto false",
                 "doit seto \"New task\"",
                 "doit seto \"New task\" 2020.12.12",
-                "doit seto \"New task\" 2020.12.12-12:59:00",
-                "doit seto \"New task\" 2020.12.12-2020.12.26",
-                "doit seto \"New task\" 2020.12.12-00:17:45-2020.12.26-11:32:17");
+                "doit seto \"New task\" 2020.12.12-00:59:00am",
+                "doit seto \"New task\" 2020.12.12--2020.12.26",
+                "doit seto \"New task\" 2020.12.12-00:17:45am--2020.12.26-11:32:17am",
+                "doit seto \"New task\" 2020.12.12-12:17:45pm--2020.12.13-00:17:45am");
     }
 
     @ParameterizedTest
@@ -71,9 +72,10 @@ class DoitApplicationTests {
                 "doit seto \"New task\" 1998.12.12",
                 "doit seto \"New task\" 2020.13.12",
                 "doit seto \"New task\" 2020.12.12-",
-                "doit seto \"New task\" 2020.12.12-13:00:00",
-                "doit seto \"New task\" 2020.12.12-11:60:00",
-                "doit seto \"New task\" 2020.12.12-00:00:60",
+                "doit seto \"New task\" 2020.12.12-13:00:00am",
+                "doit seto \"New task\" 2020.12.12-11:60:00am",
+                "doit seto \"New task\" 2020.12.12-00:00:60am",
+                "doit seto \"New task\" 2020.12.12-12:59:00rm",
                 "doit seto \"New task\" 2020.12.12-11:00:00-2020.12.11");
     }
 
@@ -89,9 +91,11 @@ class DoitApplicationTests {
                 "doit seto \"New task\" 2021.02.30",
                 "doit seto \"New task\" 2021.02.31",
                 "doit seto \"New task\" 2021.04.31",
-                "doit seto \"New task\" 2020.03.12-2020.06.31",
-                "doit seto \"New task\" 2020.02.30-2020.12.26",
-                "doit seto \"New task\" 2020.03.25-2020.03.25",
-                "doit seto \"New task\" 2020.03.25-2020.01.26");
+                "doit seto \"New task\" 2020.03.12--2020.06.31",
+                "doit seto \"New task\" 2020.02.30--2020.12.26",
+                "doit seto \"New task\" 2020.03.25--2020.03.25",
+                "doit seto \"New task\" 2020.03.25--2020.01.26",
+                "doit seto \"New task\" 2020.12.12-00:17:45pm--2020.12.12-11:32:17am",
+                "doit seto \"New task\" 2020.12.12-12:17:45pm--2020.12.12-11:32:17am");
     }
 }
