@@ -68,6 +68,13 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.10</version>
         </dependency>
+
+        <!-- Data Migration Tool for MonogoDB-->
+        <dependency>
+            <groupId>com.github.mongobee</groupId>
+            <artifactId>mongobee</artifactId>
+            <version>0.13</version>
+        </dependency>
     </dependencies>
 
     <build>
